@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/panic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_red"
+        android:layout_below="@+id/settings_button"
+        android:drawableTop="@drawable/emergency" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:layout_below="@+id/recordAPath_button"
+        android:background="@drawable/btn_green"
+        android:drawableTop="@drawable/gear"
+         />
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="160dp"
+        android:layout_height="130dp"
+        android:layout_above="@+id/panic_button"
+        android:layout_alignLeft="@+id/getDirections_button"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_yellow"
+        android:drawableTop="@drawable/exit"
+        />
+
+    <Button
+        android:id="@+id/recordAPath_button"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_blue"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:drawableTop="@drawable/running_man"
+         />
+
+    <Button
+        android:id="@+id/getDirections_button"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_above="@+id/settings_button"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_purple"
+        android:drawableTop="@drawable/compass"
+         />
+
+</RelativeLayout>

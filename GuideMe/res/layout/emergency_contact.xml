@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        style="@style/ButtonText"
+        android:gravity="fill_horizontal|center|start"
+        android:id="@+id/emergencyInfomration_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Emergency Contact Information\n"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/contactPhone_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/contactPhone_textView"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/contactPhone_textView"
+        style="@style/ButtonText"
+        android:gravity="fill_horizontal|center|start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emergencyInfomration_textView"
+        android:layout_alignRight="@+id/emergencyInfomration_textView"
+        android:layout_below="@+id/emergencyInfomration_textView"
+        android:text="Phone Number:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/contactPhone_editText"
+        android:background="@drawable/btn_purple" 
+        android:drawableTop="@drawable/play"/>
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:layout_below="@+id/record_button"
+        android:background="@drawable/btn_green" 
+        android:drawableTop="@drawable/ok"/>
+
+    <Button
+        android:id="@+id/record_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/play_button"
+        android:layout_toLeftOf="@+id/play_button"
+        android:background="@drawable/btn_blue"
+        android:drawableTop="@drawable/mic" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/play_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/ok_button"
+        android:background="@drawable/btn_yellow"
+        android:drawableTop="@drawable/cancel" />
+
+</RelativeLayout>

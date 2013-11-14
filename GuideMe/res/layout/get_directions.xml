@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/panic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cancel_button"
+        android:background="@drawable/btn_red"
+        android:drawableTop="@drawable/emergency2" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/orientation_button"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:background="@drawable/btn_black"
+        android:text="" />
+
+    <Button
+        android:id="@+id/steps_button"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/orientation_button"
+        android:background="@drawable/btn_black"
+        android:text="" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/steps_button"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/orientation_button"
+        android:background="@drawable/btn_yellow"
+        android:drawableTop="@drawable/ok" />
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignBaseline="@+id/cancel_button"
+        android:layout_alignBottom="@+id/cancel_button"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/cancel_button"
+        android:background="@drawable/btn_green"
+        android:drawableTop="@drawable/play" />
+
+</RelativeLayout>

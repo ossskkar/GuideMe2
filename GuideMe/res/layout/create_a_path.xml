@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/pathName_textView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Record a name for the new path"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <requestFocus />
+
+    <Button
+        android:id="@+id/panic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cancel_button"
+        android:background="@drawable/btn_red"
+        android:drawableTop="@drawable/emergency2" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_alignRight="@+id/ok_button"
+        android:layout_below="@+id/pathName_editText"
+        android:layout_weight="1.00"
+        android:background="@drawable/btn_blue"
+        android:drawableTop="@drawable/mic" />
+
+    <EditText
+        android:id="@+id/pathName_editText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pathName_textView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/play_button"
+        android:layout_weight="1.00"
+        android:background="@drawable/btn_yellow"
+        android:drawableTop="@drawable/cancel" />
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_above="@+id/panic_button"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/relativeLayout1"
+        android:layout_weight="1.00"
+        android:background="@drawable/btn_green"
+        android:drawableTop="@drawable/ok" />
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/reset_button"
+        android:layout_weight="1.00"
+        android:background="@drawable/btn_purple"
+        android:drawableTop="@drawable/play" />
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nctu.guideme"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" /> 
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/guideme2"
+        android:label="@string/app_name"
+        android:theme="@style/Black" >
+        <activity
+            android:name="com.nctu.guideme.MainActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".BaseActivity"                     android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".AudioInterface"                   android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".CreateAPath_layoutActivity"       android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".SaveAPath_layoutActivity" android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".GetDirections_layoutActivity"     android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".InitialScreen_layoutActivity"     android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".RecordAPath_layoutActivity"       android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".SelectAPath_layoutActivity"       android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".Settings_layoutActivity"          android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".EmergencyContact_layoutActivity"  android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".Calibration_layoutActivity"       android:label="@string/app_name" android:screenOrientation="portrait"/>
+        <activity android:name=".PanicButton"                      android:label="@string/app_name" android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

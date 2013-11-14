@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/panic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cancel_button"
+        android:background="@drawable/btn_red"
+        android:drawableTop="@drawable/emergency2" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp" >
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/sync_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_above="@+id/panic_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:background="@drawable/btn_green"
+        android:drawableTop="@drawable/refresh" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/emergencyContact_button"
+        android:background="@drawable/btn_yellow"
+        android:drawableTop="@drawable/exit" />
+
+    <Button
+        android:id="@+id/calibration_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_above="@+id/cancel_button"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/relativeLayout1"
+        android:background="@drawable/btn_purple"
+        android:drawableTop="@drawable/wrench" />
+
+    <Button
+        android:id="@+id/emergencyContact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/relativeLayout1"
+        android:background="@drawable/btn_blue"
+        android:drawableTop="@drawable/info" />
+
+</RelativeLayout>

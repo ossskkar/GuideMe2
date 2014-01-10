@@ -2,15 +2,13 @@ package com.nctu.guideme;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.format.DateFormat;
@@ -18,9 +16,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class RecordAPath_layoutActivity extends BaseActivity implements SensorEventListener{
@@ -92,7 +87,7 @@ public class RecordAPath_layoutActivity extends BaseActivity implements SensorEv
 		currentAcceleration    = new float[3];
 		cumulativeAcceleration = new float[3];
 		valuesOrientation      = new float[3];
-		previousOrientation      = new float[3];
+		previousOrientation    = new float[3];
 
 		/* Initialize variable for counting samples */
 		sampleCounter=0;
@@ -107,10 +102,10 @@ public class RecordAPath_layoutActivity extends BaseActivity implements SensorEv
 		preferences.SetPreference("stepValue", fStepValue);
 		
 		/* Sensor Manager */
-		sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+		sensorManager       = (SensorManager)getSystemService(SENSOR_SERVICE);
 	    sensorAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 	    sensorOrientation   = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
-		
+	    
 		/* Initialize temporal object to store path_d data*/
 		paths_d=null;
 		paths_d=new ArrayList<Path_d>();

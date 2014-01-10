@@ -1,7 +1,8 @@
 package com.nctu.guideme;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class CreateAPath_layoutActivity extends BaseActivity {
+public class CreateAPath_layoutActivity extends BaseActivity implements LocationListener{
 
 	/* Declare buttons in current layout */
 	TextView pathName_textView;
@@ -210,5 +211,29 @@ public class CreateAPath_layoutActivity extends BaseActivity {
 				return true;
 			}
 		});
+	}
+
+	@Override
+	public void onLocationChanged(Location arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderDisabled(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderEnabled(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+		// TODO Auto-generated method stub
+		
 	}
 }

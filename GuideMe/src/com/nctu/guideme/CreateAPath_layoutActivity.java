@@ -1,8 +1,11 @@
 package com.nctu.guideme;
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateAPath_layoutActivity extends BaseActivity implements LocationListener{
 
@@ -23,12 +27,35 @@ public class CreateAPath_layoutActivity extends BaseActivity implements Location
 	Button   cancel_button;
 	Button   panic_button;
 	String   recordIcon, playIcon; 
+
+	/* Location Manager */
+	private LocationManager locationManager;
+	private String provider;
+	private float lat;
+	private float lng;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_a_path);
 
+		/* Get the locationManager */
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		
+		/* Criteria to select location provider */
+		Criteria criteria = new Criteria();
+		provider = locationManager.getBestProvider(criteria, false);
+		Location location = locationManager.getLastKnownLocation(provider);
+		
+		/* Initialize the location fields */
+		if (location != null) {
+		      System.out.println("Provider " + provider + " has been selected.");
+		      onLocationChanged(location);
+		} else {
+		      Toast toast = Toast.makeText(this, "Location not available.", 1000);
+		      toast.show();
+		}
+		
 		/* Find id of views */
 		pathName_textView = (TextView)findViewById(R.id.pathName_textView);
 		pathName_editText = (EditText)findViewById(R.id.pathName_editText);
@@ -140,6 +167,15 @@ public class CreateAPath_layoutActivity extends BaseActivity implements Location
 				/* Haptic feedback */
 				vibrator.vibrate(50);
 				
+				/* Insert path_h*/
+				String url;
+				url = "http://0160811.bugs3.com/guideme/insert_path_h.php?lat="
+						+ String.valueOf(lat) + "&lng=" + String.valueOf(lng);
+				
+				/* Send data to external server */
+				HttpConnection con = new HttpConnection(url);
+					(new Thread(con)).start();
+				
 				/*Verify parameters */
 				//if (!recorder.GetFileStatus()) 
 				//	audioInterface=new AudioInterface(getApplicationContext(),"record_name_for_new_path");
@@ -166,7 +202,7 @@ public class CreateAPath_layoutActivity extends BaseActivity implements Location
 			public void onClick(View v) {
 				/* Haptic feedback */
 				vibrator.vibrate(50);
-				
+					
 				startActivity(new Intent(getApplicationContext(), MainActivity.class));
 				finish();
 			}
@@ -213,22 +249,42 @@ public class CreateAPath_layoutActivity extends BaseActivity implements Location
 		});
 	}
 
+	 /* Request updates at startup */
 	@Override
-	public void onLocationChanged(Location arg0) {
+	protected void onResume() {
+	  super.onResume();
+	  locationManager.requestLocationUpdates(provider, 400, 1, this);
+	}
+	
+	  /* Remove the locationlistener updates when Activity is paused */
+	@Override
+	protected void onPause() {
+	  super.onPause();
+	  locationManager.removeUpdates(this);
+	}
+	  
+	@Override
+	public void onLocationChanged(Location location) {
 		// TODO Auto-generated method stub
-		
+		lat = (float) (location.getLatitude());
+	    lng = (float) (location.getLongitude());
+	    
+	    Toast.makeText(this, "Lat = " + String.valueOf(lat) + " Long = " + String.valueOf(lng),
+			        Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onProviderDisabled(String arg0) {
 		// TODO Auto-generated method stub
-		
+		Toast.makeText(this, "Disabled provider " + provider,
+		        Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onProviderEnabled(String arg0) {
 		// TODO Auto-generated method stub
-		
+		Toast.makeText(this, "Enabled new provider " + provider,
+		        Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

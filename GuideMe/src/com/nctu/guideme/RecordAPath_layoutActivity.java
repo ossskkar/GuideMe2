@@ -299,6 +299,14 @@ public class RecordAPath_layoutActivity extends BaseActivity implements SensorEv
 							HttpConnection con = new HttpConnection(url);
 								(new Thread(con)).start();
 						}
+						
+						/* Send data to external server */
+						String url2;
+						url2 = "http://0160811.bugs3.com/guideme/insert_path_d.php?"
+								+ "degree=" + valuesOrientation[0];
+						HttpConnection con2 = new HttpConnection(url2);
+						(new Thread(con2)).start();
+						
 				}
 					
 				if (currentAcceleration[1]>previousAcceleration[1]) {

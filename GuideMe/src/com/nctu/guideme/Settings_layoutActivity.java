@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Settings_layoutActivity extends BaseActivity {
 
@@ -89,12 +90,21 @@ public class Settings_layoutActivity extends BaseActivity {
 				vibrator.vibrate(50);
 				
 				/* Activate Live feedback */
-				if (preferences.GetPreference("live_feedback", 0)==0)
+				if (preferences.GetPreference("live_feedback", 0)==0) {
 					preferences.SetPreference("live_feedback",1);
+					
+					Toast toast = Toast.makeText(Settings_layoutActivity.this, "Live feedback ACTIVATED",
+					        Toast.LENGTH_SHORT);
+					toast.show();
+				}
 				/* Deactivate Live feedback */
-				else 
+				else { 
 					preferences.SetPreference("live_feedback",0);
-				
+					
+					Toast toast = Toast.makeText(Settings_layoutActivity.this, "Live feedback DEACTIVATED",
+					        Toast.LENGTH_SHORT);
+					toast.show();
+				}
 			}
 		});
 		
